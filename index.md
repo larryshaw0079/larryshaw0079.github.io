@@ -29,7 +29,9 @@ My research interests include:
 
 <!-- Add entries below, newest first, in the format: - **[MM/YYYY]:** text -->
 
+<div class="news-list" markdown="1">
 - **[02/2026]:** One paper on universal 3D shape matching is accepted to CVPR 2026!
+</div>
 
 ## Work Experience
 

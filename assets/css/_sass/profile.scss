@@ -1,12 +1,14 @@
-/* Profile */
+/* Profile: circular photo wrapped in a warm gradient ring */
 .profile {
-    border-style: solid;
-    border-color: $light-gray;
+    border: none;
+    padding: 5px;
+    background: linear-gradient(135deg, #fbbf24, #f97316, #dc2626);
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.22);
     margin-left: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    border-radius: 6px;
     border-radius: 50%;
+    box-sizing: border-box;
 }
 
 .left {
