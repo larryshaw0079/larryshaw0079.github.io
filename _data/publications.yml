@@ -1,0 +1,103 @@
+# Publications rendered by _includes/publications.html on the home page.
+#
+# Fields per entry:
+#   title        paper title
+#   authors      list of { name, me: true (bolded), cofirst: true (asterisk + random order swap) }
+#   venue        full venue name (italicised in the card)
+#   venue_short  short name shown in the badge and the placeholder thumbnail
+#   year         publication year
+#   type         journal | conference | preprint   (controls badge colour)
+#   award        optional: Oral | Spotlight | Highlight | Best Paper ... (red badge)
+#   image        optional: path to a teaser image, e.g. /assets/images/pubs/cosleep.png
+#                (drop images into assets/images/pubs/; a styled placeholder is shown if empty)
+#   note         optional footnote, e.g. "* equal contribution"
+#   links        label -> url pairs, rendered as buttons
+
+- title: "Articulating then Matching: Zero-Shot Shape Matching for Uncurated Data"
+  authors:
+    - name: Qilong Liu
+      cofirst: true
+    - name: Qinfeng Xiao
+      me: true
+      cofirst: true
+    - name: Chenyuan Yi
+    - name: Liying Zhang
+    - name: Kit-lun Yick
+  venue: arXiv
+  venue_short: arXiv
+  year: 2026
+  type: preprint
+  image: /assets/images/pubs/articulating.png
+  links:
+    Paper: https://arxiv.org/abs/2606.29167
+
+- title: "Universal 3D Shape Matching via Coarse-to-Fine Language Guidance"
+  authors:
+    - name: Qinfeng Xiao
+      me: true
+      cofirst: true
+    - name: Guofeng Mei
+      cofirst: true
+    - name: Bo Yang
+    - name: Liying Zhang
+    - name: Jian Zhang
+    - name: Kit-lun Yick
+  venue: The IEEE/CVF Conference on Computer Vision and Pattern Recognition
+  venue_short: CVPR
+  year: 2026
+  type: conference
+  image: /assets/images/pubs/shape-matching.png
+  links:
+    Paper: https://arxiv.org/abs/2602.19112
+
+- title: "Parameter-Efficient CLIP Adaptation for 3D Understanding via Unified Tokenization"
+  authors:
+    - name: Guofeng Mei
+      cofirst: true
+    - name: Qinfeng Xiao
+      me: true
+      cofirst: true
+    - name: Bin Ren
+    - name: Luigi Riz
+    - name: Juan Liu
+    - name: Xiaoshui Huang
+    - name: Xu Zheng
+    - name: Nicu Sebe
+    - name: Ming-Hsuan Yang
+    - name: Fabio Poiesi
+  venue: arXiv
+  venue_short: arXiv
+  year: 2025
+  type: preprint
+  image: /assets/images/pubs/clip3d.png
+  links:
+    Paper: https://arxiv.org/abs/2505.18819
+
+- title: "CoSleep: A Multi-view Representation Learning Framework for Self-Supervised Learning of Sleep Stage Classification"
+  authors:
+    - name: Jianan Ye
+      cofirst: true
+    - name: Qinfeng Xiao
+      me: true
+      cofirst: true
+  venue: IEEE Signal Processing Letters
+  venue_short: IEEE SPL
+  year: 2021
+  type: journal
+  image: /assets/images/pubs/cosleep.png
+  links:
+    Paper: https://ieeexplore.ieee.org/document/9627561
+    Code: https://github.com/larryshaw0079/CoSleep
+
+- title: "Self-Supervised Learning for Sleep Stage Classification with Predictive and Discriminative Contrastive Coding"
+  authors:
+    - name: Qinfeng Xiao
+      me: true
+  venue: The International Conference on Acoustics, Speech, & Signal Processing
+  venue_short: ICASSP
+  year: 2021
+  type: conference
+  image: /assets/images/pubs/sleepdpc.png
+  links:
+    Paper: https://ieeexplore.ieee.org/document/9414752
+    Code: https://github.com/larryshaw0079/SleepDPC

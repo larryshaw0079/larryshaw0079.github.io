@@ -7,12 +7,28 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- Set theme before CSS loads to avoid a flash of the wrong mode.
+       Saved preference wins; otherwise dark between 19:00 and 07:00 local time. -->
+  <script type="text/javascript">
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) { }
+      var hour = new Date().getHours();
+      var theme = (saved === 'dark' || saved === 'light') ? saved : ((hour >= 19 || hour < 7) ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
 
   {% unless layout.hide_header_nav or page.hide_header_nav %}
   <header>
     <h1 class="post-headline">{{site.title}}</h1>
     <h3 class="post-description">{{site.description}}</h3>
+    {% unless layout.hide_social_footer or page.hide_social_footer %}
+    {% include social-footer.html %}
+    {% endunless %}
     {% include navigation.html %}
   </header>
   {% endunless %}
@@ -27,7 +43,7 @@
   <script type="text/javascript">
     (function () {
       var css = document.createElement('link');
-      css.href = 'https://use.fontawesome.com/releases/v6.7.2/css/all.css';
+      css.href = '{{site.baseurl}}/assets/fontawesome/css/all.min.css';
       css.rel = 'stylesheet';
       css.type = 'text/css';
       //this class is added to the body when fontawesome is loaded
@@ -45,6 +61,10 @@
 </head>
 
 <body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+  </button>
+
   <main>
     <article>
       {{ content }}
@@ -60,11 +80,15 @@
       </small>
     </p>
 
-    {% unless layout.hide_social_footer or page.hide_social_footer %}
-    {% include social-footer.html %}
-    {% endunless %}
-
   </footer>
+
+  <script type="text/javascript">
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { }
+    });
+  </script>
 
   {% include analytics.html %}
 

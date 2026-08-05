@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
 
-  @media (prefers-color-scheme: dark) {
+  @at-root :root[data-theme="dark"] & {
     background-color: $body-bg-dark;
     color: $text-color-dark;
   }
@@ -48,7 +48,7 @@ a {
   &:hover {
     color: $text-color;
 
-    @media (prefers-color-scheme: dark) {
+    @at-root :root[data-theme="dark"] & {
       color: $text-color-dark;
     }
 
@@ -79,7 +79,7 @@ p a {
 
   }
 
-  @media (prefers-color-scheme: dark) {
+  @at-root :root[data-theme="dark"] & {
     color: $text-color-dark;
   }
 }
@@ -223,4 +223,44 @@ blockquote {
 /* Article list in blog and archive page */
 .article-list {
   margin: 1em 0;
+}
+
+/* Dark/light mode toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    border-color: $brand-color;
+    color: $brand-color;
+  }
+
+  .fa-sun {
+    display: none;
+  }
+
+  @at-root :root[data-theme="dark"] & {
+    background: #2c313a;
+    border-color: #4a515c;
+    color: $text-color-dark;
+
+    .fa-moon {
+      display: none;
+    }
+
+    .fa-sun {
+      display: inline;
+    }
+  }
 }

@@ -5,6 +5,12 @@
   transition: opacity 0.1s ease-in;
 }
 
+/* When shown in the page header (below the description), align with the text */
+header .rounded-social-buttons {
+  text-align: left;
+  margin-top: 0.4em;
+}
+
 //the font-awesome-loaded class is added to the body when fontawesome is loaded
 //this is done to make the fontawesome icons appear at the same time as the custome CSS-only logos
 //like the substack logo used below. The class is added in the default layout (_layouts/default.html)
@@ -108,6 +114,17 @@ body.fontawesome-loaded .rounded-social-buttons {
   color: #a6ce3b;
   background: #fefefe;
   border-color: #a6ce3b;
+}
+
+.rounded-social-buttons .social-button.scholar {
+  background: #4285f4;
+}
+
+.rounded-social-buttons .social-button.scholar:hover,
+.rounded-social-buttons .social-button.scholar:focus-visible {
+  color: #4285f4;
+  background: #fefefe;
+  border-color: #4285f4;
 }
 
 .rounded-social-buttons .social-button.researchgate {

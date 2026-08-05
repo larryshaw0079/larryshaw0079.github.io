@@ -1,11 +1,11 @@
 ### your site title here
 
-title: Your Name
-description: subtitle | affiliations | motto
+title: Qinfeng Xiao (Larry)
+description: PhD Student @ PolyU (The Hong Kong Polytechnic University)
 
-baseurl: /gradfolio #name of GitHub repository
-url: "" #custom url to be used instead of GitHub repository
-email: #
+baseurl: "" #name of GitHub repository
+url: "https://larryshaw0079.github.io" #custom url to be used instead of GitHub repository
+email: qin-feng.xiao@connect.polyu.hk
 
 # Pagination
 paginate: 4
@@ -13,16 +13,17 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-linkedin: "#"
-stackoverflow: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
-quora: "#"
-instagram: "#"
-facebook: "#"
-bluesky: "#"
-substack: "#"
+linkedin: "larry-shaw-438bbb252"
+stackoverflow:
+github: "larryshaw0079"
+researchgate:
+orcid: "0000-0001-7492-3009"
+scholar: "s1HXfO8AAAAJ"
+quora:
+instagram: "larryshaw0079"
+facebook:
+bluesky:
+substack:
 
 # Markdown
 highlighter: rouge
