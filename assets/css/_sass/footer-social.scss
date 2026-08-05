@@ -54,6 +54,7 @@ body.fontawesome-loaded .rounded-social-buttons {
 .fa-researchgate,
 .fa-bluesky,
 .fa-envelope,
+.fa-x-twitter,
 .fa-quora,
 .fa-instagram,
 .fa-stack-overflow,
@@ -114,6 +115,17 @@ body.fontawesome-loaded .rounded-social-buttons {
   color: #a6ce3b;
   background: #fefefe;
   border-color: #a6ce3b;
+}
+
+.rounded-social-buttons .social-button.x {
+  background: #000000;
+}
+
+.rounded-social-buttons .social-button.x:hover,
+.rounded-social-buttons .social-button.x:focus-visible {
+  color: #000000;
+  background: #fefefe;
+  border-color: #000000;
 }
 
 .rounded-social-buttons .social-button.scholar {

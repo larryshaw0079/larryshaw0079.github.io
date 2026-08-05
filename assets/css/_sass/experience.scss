@@ -1,0 +1,71 @@
+/* Simple work-experience rows: logo | role, org, place | dates */
+
+.exp-list {
+  margin: 1em 0;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.6em 0;
+}
+
+.exp-logo {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 8px;
+  /* white chip so transparent logos stay readable in dark mode */
+  background: #fff;
+  padding: 4px;
+  box-sizing: border-box;
+  border: 1px solid #e4e4e4;
+
+  @at-root :root[data-theme="dark"] & {
+    border-color: #3a414c;
+  }
+}
+
+.exp-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.exp-role {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.exp-place {
+  font-size: 0.8em;
+  color: #777;
+
+  @at-root :root[data-theme="dark"] & {
+    color: #8b93a0;
+  }
+}
+
+.exp-period {
+  flex: 0 0 auto;
+  font-size: 0.8em;
+  color: #777;
+  white-space: nowrap;
+
+  @at-root :root[data-theme="dark"] & {
+    color: #8b93a0;
+  }
+}
+
+@include media-query($on-palm) {
+  .exp-item {
+    align-items: flex-start;
+  }
+
+  .exp-period {
+    white-space: normal;
+    text-align: right;
+    max-width: 6em;
+  }
+}

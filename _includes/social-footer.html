@@ -42,6 +42,13 @@
   </a>
   {%- endif -%}
 
+  {%- if site.x -%}
+  <a title="{{ _locale_string_follow | replace: '[NAME]', 'X' }}" class="social-button x" itemprop="sameAs"
+    href="https://x.com/{{ site.x }}" target="_blank">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  {%- endif -%}
+
   {%- if site.facebook -%}
   <a title="{{ _locale_string_follow | replace: '[NAME]', 'Facebook' }}" class="social-button facebook"
     itemprop="sameAs" href="https://www.facebook.com/{{ site.facebook }}" target="_blank">

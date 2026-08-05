@@ -1,0 +1,12 @@
+<div class="exp-list">
+  {%- for e in site.data.experience %}
+  <div class="exp-item">
+    <img class="exp-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }} logo">
+    <div class="exp-main">
+      <div class="exp-role">{{ e.role }}, <span class="exp-org">{{ e.org }}</span></div>
+      <div class="exp-place">{{ e.place }}</div>
+    </div>
+    <div class="exp-period">{{ e.period }}</div>
+  </div>
+  {%- endfor %}
+</div>
