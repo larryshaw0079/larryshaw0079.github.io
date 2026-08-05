@@ -14,7 +14,7 @@ I am currently a PhD student of the Hong Kong Polytechnic University (PolyU), su
   <img src="{{ '/assets/images/logos/bjtu.png' | relative_url }}" alt="Beijing Jiaotong University" title="Beijing Jiaotong University">
 </div>
 
-I closely collaborate with [Guofeng Mei](https://gfmei.github.io/){:target="_blank"}, [Chenhan Jiang](https://jiangchenhan.github.io/){:target="_blank"} and [Qi Zhang](https://qizhang-research.com/){:target="_blank"}.
+I closely collaborate with [Guofeng Mei (FBK)](https://gfmei.github.io/){:target="_blank"}, [Chenhan Jiang (HKUST)](https://jiangchenhan.github.io/){:target="_blank"} and [Qi Zhang (UvA)](https://qizhang-research.com/){:target="_blank"}.
 
 My research interests include:
 
