@@ -234,17 +234,8 @@ blockquote {
   margin: 0.8em 0;
 
   img {
-    height: 64px;
+    height: 100px;
     width: auto;
-    background: #fff;
-    border-radius: 8px;
-    padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #e4e4e4;
-
-    @at-root :root[data-theme="dark"] & {
-      border-color: #2e2e2e;
-    }
   }
 }
 
