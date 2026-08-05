@@ -24,7 +24,7 @@
   border: 1px solid #e4e4e4;
 
   @at-root :root[data-theme="dark"] & {
-    border-color: #3a414c;
+    border-color: #2e2e2e;
   }
 }
 
@@ -43,7 +43,7 @@
   color: #777;
 
   @at-root :root[data-theme="dark"] & {
-    color: #8b93a0;
+    color: #9a9a9a;
   }
 }
 
@@ -54,7 +54,7 @@
   white-space: nowrap;
 
   @at-root :root[data-theme="dark"] & {
-    color: #8b93a0;
+    color: #9a9a9a;
   }
 }
 

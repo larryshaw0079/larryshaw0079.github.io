@@ -9,7 +9,7 @@
   color: #999;
 
   @at-root :root[data-theme="dark"] & {
-    color: #7d8590;
+    color: #8f8f8f;
   }
 }
 
@@ -30,8 +30,8 @@
   }
 
   @at-root :root[data-theme="dark"] & {
-    background: #2c313a;
-    border-color: #3a414c;
+    background: #1b1b1b;
+    border-color: #2e2e2e;
 
     &:hover {
       border-color: $brand-color;
@@ -71,7 +71,7 @@
     }
 
     &.conference {
-      background: linear-gradient(135deg, #48934f, #7cc384);
+      background: linear-gradient(135deg, #ea580c, #fb923c);
     }
 
     &.preprint {
@@ -104,7 +104,7 @@
   }
 
   &.conference {
-    background: #48934f;
+    background: #ea580c;
   }
 
   &.preprint {
@@ -112,7 +112,7 @@
   }
 
   &.award {
-    background: #d9534f;
+    background: #e11d48;
   }
 }
 
@@ -133,7 +133,7 @@
 
   .pub-author.me {
     font-weight: 700;
-    background: linear-gradient(90deg, $brand-color, #5fa8d3);
+    background: linear-gradient(90deg, #f59e0b, #dc2626);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -167,7 +167,7 @@
   color: #777;
 
   @at-root :root[data-theme="dark"] & {
-    color: #8b93a0;
+    color: #9a9a9a;
   }
 }
 

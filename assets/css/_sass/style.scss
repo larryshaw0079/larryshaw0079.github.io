@@ -243,7 +243,7 @@ blockquote {
     border: 1px solid #e4e4e4;
 
     @at-root :root[data-theme="dark"] & {
-      border-color: #3a414c;
+      border-color: #2e2e2e;
     }
   }
 }
@@ -269,21 +269,21 @@ blockquote {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
 
-  /* spectrum flowing from brand green through blue to violet */
+  /* warm spectrum flowing from amber through orange into red */
   &:nth-child(4n+1) {
-    background: linear-gradient(120deg, #60c17d, #4aa9a2);
+    background: linear-gradient(120deg, #fbbf24, #f59e0b);
   }
 
   &:nth-child(4n+2) {
-    background: linear-gradient(120deg, #4aa9a2, #5fa8d3);
+    background: linear-gradient(120deg, #f59e0b, #f97316);
   }
 
   &:nth-child(4n+3) {
-    background: linear-gradient(120deg, #5fa8d3, #6f86d6);
+    background: linear-gradient(120deg, #f97316, #ea580c);
   }
 
   &:nth-child(4n+4) {
-    background: linear-gradient(120deg, #6f86d6, #9a7fd1);
+    background: linear-gradient(120deg, #ea580c, #dc2626);
   }
 
   &:hover {
@@ -318,8 +318,8 @@ blockquote {
   }
 
   @at-root :root[data-theme="dark"] & {
-    background: #2c313a;
-    border-color: #4a515c;
+    background: #1b1b1b;
+    border-color: #3a3a3a;
     color: $text-color-dark;
 
     .fa-moon {

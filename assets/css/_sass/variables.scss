@@ -8,15 +8,15 @@ $spacing-unit:     30px;
 $light-gray: gray;
 $text-color:       #333;
 $background-color: #fdfdfd;
-$brand-color:      #60c17d;
+$brand-color:      #f97316;
 $projectbox-text:  #1e2126;
 
-// Color scheme for light
-$body-bg: #fdfdfd;
-$projectbox: #c3e1c9;
+// Color scheme for light (white + orange)
+$body-bg: #fefefe;
+$projectbox: #fbdcb8;
 $text-color: #333;
 
-// Color scheme for dark modes
-$body-bg-dark: #23272d;
-$projectbox-dark: lighten(#98a0ac, 2%);
-$text-color-dark: #98a0ac;
+// Color scheme for dark modes (black + orange)
+$body-bg-dark: #0f0f0f;
+$projectbox-dark: lighten(#b08968, 2%);
+$text-color-dark: #b5b5b5;
