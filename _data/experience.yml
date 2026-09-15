@@ -1,5 +1,11 @@
 # Work experience rendered by _includes/experience.html, newest first.
 # Fields: role, org, logo (path under /assets/images/logos/), place, period
+- role: Intern
+  org: Tencent Hunyuan
+  logo: /assets/images/logos/hunyuan.png
+  place: Shenzhen, China
+  period: Sep. 2026 – Present
+
 - role: Research Assistant
   org: The Hong Kong Polytechnic University
   logo: /assets/images/logos/polyu.png
