@@ -19,10 +19,10 @@ I closely collaborate with [Guofeng Mei (FBK)](https://gfmei.github.io/){:target
 My research interests include:
 
 <div class="interest-badges">
-  <span class="interest-badge">3D Shape Matching</span>
+  <span class="interest-badge">Multimodal Large Language Models</span>
   <span class="interest-badge">3D Vision-Language Models</span>
-  <span class="interest-badge">3D Segmentation</span>
   <span class="interest-badge">3D Generation</span>
+  <span class="interest-badge">3D Shape Matching</span>
 </div>
 
 ## News
