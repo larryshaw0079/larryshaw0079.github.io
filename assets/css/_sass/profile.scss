@@ -1,11 +1,16 @@
 /* Profile: circular photo wrapped in a warm gradient ring */
 .profile {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center 20%;
     border: none;
-    padding: 5px;
+    padding: 4px;
     background: linear-gradient(135deg, #fbbf24, #f97316, #dc2626);
-    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.22);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.22);
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 0;
     margin-bottom: 1rem;
     border-radius: 50%;
     box-sizing: border-box;
@@ -19,13 +24,10 @@
     float: right;
 }
 
-// adjust tile sizes on smaller screens
 @include media-query($on-phone) {
-  @media screen and (max-width: $on-phone){
-
-    .profile {
-      width: 40%;
-    }
-
+  .profile {
+    width: 132px;
+    height: 132px;
+    margin-left: 0.5rem;
   }
 }
