@@ -1,8 +1,8 @@
 /* Profile: circular photo wrapped in a warm gradient ring */
 .profile {
     display: block;
-    width: 180px;
-    height: 180px;
+    width: 204px;
+    height: 204px;
     object-fit: cover;
     object-position: center 20%;
     border: none;
@@ -26,8 +26,8 @@
 
 @include media-query($on-phone) {
   .profile {
-    width: 132px;
-    height: 132px;
+    width: 150px;
+    height: 150px;
     margin-left: 0.5rem;
   }
 }
