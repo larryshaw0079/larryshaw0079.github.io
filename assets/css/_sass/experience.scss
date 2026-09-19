@@ -13,11 +13,11 @@
   transition: background 0.25s ease;
 
   &:hover {
-    background: rgba(249, 115, 22, 0.06);
+    background: var(--brand-wash);
   }
 
   @at-root :root[data-theme="dark"] &:hover {
-    background: rgba(249, 115, 22, 0.09);
+    background: var(--brand-wash-dark);
   }
 }
 

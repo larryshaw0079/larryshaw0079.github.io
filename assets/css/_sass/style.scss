@@ -1,10 +1,11 @@
 html {
   height: 100%;
   scroll-behavior: smooth;
+  accent-color: var(--brand);
 }
 
 ::selection {
-  background: rgba(249, 115, 22, 0.25);
+  background: var(--brand-soft);
 }
 
 body {
@@ -63,7 +64,7 @@ article h2 {
     height: 4px;
     border-radius: 2px;
     margin-top: 0.1em;
-    background: linear-gradient(90deg, #f97316, #fbbf24);
+    background: linear-gradient(90deg, var(--brand), var(--brand-bright));
   }
 }
 
@@ -100,12 +101,12 @@ a {
 p a {
   color: $text-color;
   text-decoration: none;
-  background: -webkit-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: -moz-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
+  background: -webkit-linear-gradient(transparent 90%, var(--brand-light) 10%);
+  background: -moz-linear-gradient(transparent 90%, var(--brand-light) 10%);
+  background: linear-gradient(transparent 90%, var(--brand-light) 10%);
 
-  -webkit-box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
-  box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
+  -webkit-box-shadow: inset 0 0 0 0 var(--brand-light);
+  box-shadow: inset 0 0 0 0 var(--brand-light);
 
 
   -webkit-transition: box-shadow ease 1s;
@@ -114,8 +115,8 @@ p a {
 
   &:hover {
     color: lighten($background-color, 50%);
-    -webkit-box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
-    box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
+    -webkit-box-shadow: inset 0 -100px 0 0 var(--brand-light);
+    box-shadow: inset 0 -100px 0 0 var(--brand-light);
 
   }
 
@@ -199,7 +200,7 @@ blockquote {
     width: 100%;
     height: 2px;
     border-radius: 1px;
-    background: linear-gradient(90deg, #f97316, #fbbf24);
+    background: linear-gradient(90deg, var(--brand), var(--brand-bright));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.25s ease;
@@ -231,7 +232,7 @@ blockquote {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #f97316, #fbbf24);
+    background: linear-gradient(135deg, var(--brand), var(--brand-bright));
   }
 
   strong {
@@ -364,21 +365,20 @@ blockquote {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
 
-  /* warm spectrum flowing from amber through orange into red */
   &:nth-child(4n+1) {
-    background: linear-gradient(120deg, #fbbf24, #f59e0b);
+    background: linear-gradient(120deg, var(--brand-bright), var(--brand-mid));
   }
 
   &:nth-child(4n+2) {
-    background: linear-gradient(120deg, #f59e0b, #f97316);
+    background: linear-gradient(120deg, var(--brand-mid), var(--brand));
   }
 
   &:nth-child(4n+3) {
-    background: linear-gradient(120deg, #f97316, #ea580c);
+    background: linear-gradient(120deg, var(--brand), var(--brand-deep));
   }
 
   &:nth-child(4n+4) {
-    background: linear-gradient(120deg, #ea580c, #dc2626);
+    background: linear-gradient(120deg, var(--brand-deep), var(--brand-hot));
   }
 
   &:hover {
@@ -387,12 +387,79 @@ blockquote {
   }
 }
 
-/* Dark/light mode toggle button */
-.theme-toggle {
+/* Accent palette + dark/light toggle */
+.theme-controls {
   position: fixed;
   top: 1em;
   right: 1em;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+}
+
+.palette-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.38em;
+  padding: 0.38em 0.5em;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  @at-root :root[data-theme="dark"] & {
+    background: #1b1b1b;
+    border-color: #3a3a3a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  }
+}
+
+.palette-swatch {
+  width: 1.05em;
+  height: 1.05em;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--swatch);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  @at-root :root[data-theme="dark"] & {
+    border-color: #1b1b1b;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  &:hover {
+    transform: scale(1.18);
+  }
+
+  &[aria-checked="true"] {
+    box-shadow: 0 0 0 2px var(--swatch);
+    transform: scale(1.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--swatch);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette-swatch {
+    transition: none;
+
+    &:hover,
+    &[aria-checked="true"] {
+      transform: none;
+    }
+  }
+}
+
+.theme-toggle {
   width: 2.4em;
   height: 2.4em;
   border-radius: 50%;
@@ -401,7 +468,7 @@ blockquote {
   color: #333;
   font-size: 1em;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 
   &:hover {
     border-color: $brand-color;
@@ -425,5 +492,27 @@ blockquote {
     .fa-sun {
       display: inline;
     }
+  }
+}
+
+@include media-query($on-palm) {
+  header {
+    padding-right: 3.4em;
+  }
+
+  .theme-controls {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 0.45em;
+  }
+
+  .palette-bar {
+    flex-direction: column;
+    padding: 0.45em 0.32em;
+  }
+
+  .palette-swatch {
+    width: 0.95em;
+    height: 0.95em;
   }
 }

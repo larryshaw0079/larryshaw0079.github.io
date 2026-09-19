@@ -134,7 +134,7 @@
 
   .pub-author.me {
     font-weight: 700;
-    background: linear-gradient(90deg, #f59e0b, #dc2626);
+    background: linear-gradient(90deg, var(--brand-mid), var(--brand-hot));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -8,15 +8,83 @@ $spacing-unit:     30px;
 $light-gray: gray;
 $text-color:       #333;
 $background-color: #fdfdfd;
-$brand-color:      #f97316;
+$brand-color:      var(--brand);
 $projectbox-text:  #1e2126;
 
-// Color scheme for light (white + orange)
+// Color scheme for light
 $body-bg: #fefefe;
-$projectbox: #fbdcb8;
+$projectbox: var(--projectbox);
 $text-color: #333;
 
-// Color scheme for dark modes (black + orange)
+// Color scheme for dark modes
 $body-bg-dark: #0f0f0f;
-$projectbox-dark: lighten(#b08968, 2%);
+$projectbox-dark: var(--projectbox-dark);
 $text-color-dark: #b5b5b5;
+
+// Accent palettes. Switching data-accent on <html> recolors the site.
+:root,
+:root[data-accent="orange"] {
+  --brand: #f97316;
+  --brand-bright: #fbbf24;
+  --brand-mid: #f59e0b;
+  --brand-deep: #ea580c;
+  --brand-hot: #dc2626;
+}
+
+:root[data-accent="rose"] {
+  --brand: #e11d48;
+  --brand-bright: #fb7185;
+  --brand-mid: #f43f5e;
+  --brand-deep: #be123c;
+  --brand-hot: #9f1239;
+}
+
+:root[data-accent="amber"] {
+  --brand: #d97706;
+  --brand-bright: #facc15;
+  --brand-mid: #eab308;
+  --brand-deep: #b45309;
+  --brand-hot: #92400e;
+}
+
+:root[data-accent="green"] {
+  --brand: #16a34a;
+  --brand-bright: #86efac;
+  --brand-mid: #22c55e;
+  --brand-deep: #15803d;
+  --brand-hot: #166534;
+}
+
+:root[data-accent="teal"] {
+  --brand: #0d9488;
+  --brand-bright: #5eead4;
+  --brand-mid: #14b8a6;
+  --brand-deep: #0f766e;
+  --brand-hot: #115e59;
+}
+
+:root[data-accent="blue"] {
+  --brand: #2563eb;
+  --brand-bright: #93c5fd;
+  --brand-mid: #3b82f6;
+  --brand-deep: #1d4ed8;
+  --brand-hot: #1e40af;
+}
+
+:root[data-accent="violet"] {
+  --brand: #7c3aed;
+  --brand-bright: #c4b5fd;
+  --brand-mid: #8b5cf6;
+  --brand-deep: #6d28d9;
+  --brand-hot: #5b21b6;
+}
+
+:root {
+  --brand-light: color-mix(in srgb, var(--brand) 70%, white);
+  --brand-soft: color-mix(in srgb, var(--brand) 25%, transparent);
+  --brand-wash: color-mix(in srgb, var(--brand) 6%, transparent);
+  --brand-wash-dark: color-mix(in srgb, var(--brand) 9%, transparent);
+  --brand-shadow: color-mix(in srgb, var(--brand) 22%, transparent);
+  --projectbox: color-mix(in srgb, var(--brand) 30%, #fff6ea);
+  --projectbox-dark: color-mix(in srgb, var(--brand) 26%, #3d3228);
+}
