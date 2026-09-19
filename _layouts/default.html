@@ -9,20 +9,46 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
   <!-- Set theme and accent before CSS loads to avoid a flash of the wrong colors.
-       Saved preference wins; otherwise dark between 19:00 and 07:00 local time. -->
+       Defaults: accent follows the local weekday; dark from 19:00 to 07:00.
+       A clicked swatch or theme toggle is remembered and wins over the default. -->
   <script type="text/javascript">
-    (function () {
-      var saved = null;
-      try { saved = localStorage.getItem('theme'); } catch (e) { }
-      var hour = new Date().getHours();
-      var theme = (saved === 'dark' || saved === 'light') ? saved : ((hour >= 19 || hour < 7) ? 'dark' : 'light');
+    (function (w) {
+      var ACCENT_BY_DAY = ['rose', 'orange', 'amber', 'green', 'teal', 'blue', 'violet'];
+      var ACCENTS = { rose: 1, orange: 1, amber: 1, green: 1, teal: 1, blue: 1, violet: 1 };
+
+      function readPref(key) {
+        try { return localStorage.getItem(key); } catch (e) { return null; }
+      }
+
+      function writePref(key, value) {
+        try { localStorage.setItem(key, value); } catch (e) { }
+      }
+
+      function accentForWeekday() {
+        return ACCENT_BY_DAY[new Date().getDay()];
+      }
+
+      function themeForLocalTime() {
+        var hour = new Date().getHours();
+        return (hour >= 19 || hour < 7) ? 'dark' : 'light';
+      }
+
+      var savedTheme = readPref('theme-pref');
+      var theme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : themeForLocalTime();
       document.documentElement.setAttribute('data-theme', theme);
 
-      var accent = null;
-      try { accent = localStorage.getItem('accent'); } catch (e) { }
-      var accents = { orange: 1, rose: 1, amber: 1, green: 1, teal: 1, blue: 1, violet: 1 };
-      document.documentElement.setAttribute('data-accent', accents[accent] ? accent : 'orange');
-    })();
+      var savedAccent = readPref('accent-pref');
+      var accent = ACCENTS[savedAccent] ? savedAccent : accentForWeekday();
+      document.documentElement.setAttribute('data-accent', accent);
+
+      w.__siteAppearance = {
+        ACCENTS: ACCENTS,
+        readPref: readPref,
+        writePref: writePref,
+        accentForWeekday: accentForWeekday,
+        themeForLocalTime: themeForLocalTime
+      };
+    })(window);
   </script>
 
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
@@ -68,13 +94,13 @@
 <body>
   <div class="theme-controls">
     <div class="palette-bar" role="radiogroup" aria-label="Theme color">
-      <button type="button" class="palette-swatch" role="radio" data-accent="orange" style="--swatch:#f97316" aria-label="Orange" title="Orange"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="rose" style="--swatch:#e11d48" aria-label="Rose" title="Rose"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="amber" style="--swatch:#d97706" aria-label="Amber" title="Amber"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="green" style="--swatch:#16a34a" aria-label="Green" title="Green"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="teal" style="--swatch:#0d9488" aria-label="Teal" title="Teal"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="blue" style="--swatch:#2563eb" aria-label="Blue" title="Blue"></button>
-      <button type="button" class="palette-swatch" role="radio" data-accent="violet" style="--swatch:#7c3aed" aria-label="Violet" title="Violet"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="rose" style="--swatch:#e11d48" aria-label="Rose, Sunday" title="Rose · Sunday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="orange" style="--swatch:#f97316" aria-label="Orange, Monday" title="Orange · Monday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="amber" style="--swatch:#d97706" aria-label="Amber, Tuesday" title="Amber · Tuesday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="green" style="--swatch:#16a34a" aria-label="Green, Wednesday" title="Green · Wednesday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="teal" style="--swatch:#0d9488" aria-label="Teal, Thursday" title="Teal · Thursday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="blue" style="--swatch:#2563eb" aria-label="Blue, Friday" title="Blue · Friday"></button>
+      <button type="button" class="palette-swatch" role="radio" data-accent="violet" style="--swatch:#7c3aed" aria-label="Violet, Saturday" title="Violet · Saturday"></button>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
       <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
@@ -101,18 +127,23 @@
   <script type="text/javascript">
     (function () {
       var root = document.documentElement;
-      var accents = { orange: 1, rose: 1, amber: 1, green: 1, teal: 1, blue: 1, violet: 1 };
+      var appearance = window.__siteAppearance || {};
+      var accents = appearance.ACCENTS || { rose: 1, orange: 1, amber: 1, green: 1, teal: 1, blue: 1, violet: 1 };
       var bar = document.querySelector('.palette-bar');
+
+      function fallbackAccent() {
+        return appearance.accentForWeekday ? appearance.accentForWeekday() : 'orange';
+      }
 
       function currentAccent() {
         var name = root.getAttribute('data-accent');
-        return accents[name] ? name : 'orange';
+        return accents[name] ? name : fallbackAccent();
       }
 
-      function paintAccent(name) {
-        if (!accents[name]) name = 'orange';
+      function paintAccent(name, persist) {
+        if (!accents[name]) name = fallbackAccent();
         root.setAttribute('data-accent', name);
-        try { localStorage.setItem('accent', name); } catch (e) { }
+        if (persist && appearance.writePref) appearance.writePref('accent-pref', name);
         if (!bar) return;
         var buttons = bar.querySelectorAll('[data-accent]');
         for (var i = 0; i < buttons.length; i++) {
@@ -120,20 +151,20 @@
         }
       }
 
-      paintAccent(currentAccent());
+      paintAccent(currentAccent(), false);
 
       if (bar) {
         bar.addEventListener('click', function (event) {
           var button = event.target.closest('[data-accent]');
           if (!button || !bar.contains(button)) return;
-          paintAccent(button.getAttribute('data-accent'));
+          paintAccent(button.getAttribute('data-accent'), true);
         });
       }
 
       document.getElementById('theme-toggle').addEventListener('click', function () {
         var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (e) { }
+        if (appearance.writePref) appearance.writePref('theme-pref', next);
       });
     })();
   </script>
